@@ -42,6 +42,24 @@ export const Reducer = (state,action)=>{
             return {...state,search:action.payload}
         case "ADD_TO_CART":
             return {...state,cart:action.payload};
+        case "X_QTY":
+            const u_cart = state.cart.map((item)=>{
+                if(item.id === action.payload){
+                    if(action.operation === 'DECR'){
+                        return {...item,qty:item.qty-1}
+                    }
+                    else if(action.operation === 'INCR'){
+                        return {...item,qty:item.qty+1}
+                    }
+                    else{
+                        return item;
+                    }
+                }
+                return item;
+            }) 
+            
+            return {...state,cart:u_cart};
+
         default:
             return state;
     }

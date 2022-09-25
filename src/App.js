@@ -6,6 +6,7 @@ import ProductList from './components/ProductList';
 import Cart from './components/Cart'
 import {data} from './data'
 
+
 function App() {
 
   const {state,dispatch} = ProductsContext();

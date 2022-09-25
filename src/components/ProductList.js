@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {ProductsContext} from '../context/Context'
 import Table,{TableRow} from './Table';
+import {useNavigate} from 'react-router-dom'
 
 function ProductList(){
     const {state:{products,categories,filter,search},dispatch} = ProductsContext();
     const [items,setItems] = useState([])
+    const navigate = useNavigate();
 
     const filterProducts = ()=>{
         var fProducts = products;
@@ -32,6 +34,7 @@ function ProductList(){
         })
         console.log(cartItems)
         dispatch({type:"ADD_TO_CART",payload:cartItems})
+        navigate('./cart')
     }
 
     /*useEffect(()=>{
