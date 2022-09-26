@@ -42,6 +42,10 @@ export const Reducer = (state,action)=>{
             return {...state,search:action.payload}
         case "ADD_TO_CART":
             return {...state,cart:action.payload};
+        case "REMOVE_FROM_CART":
+            const newCart = state.cart.filter((item)=>(item.id !== action.payload))
+            
+            return {...state,cart:newCart}
         case "X_QTY":
             const u_cart = state.cart.map((item)=>{
                 if(item.id === action.payload){

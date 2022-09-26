@@ -5,6 +5,7 @@ import {Routes,Route} from 'react-router-dom'
 import ProductList from './components/ProductList';
 import Cart from './components/Cart'
 import {data} from './data'
+import Checkout from './components/Checkout';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
       <Routes>
         <Route path='/' element={<ProductList/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/checkout' element={<Checkout/>}/>
       </Routes>
     </div>
   );

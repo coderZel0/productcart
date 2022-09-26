@@ -16,9 +16,12 @@ export const TableRow = ({item})=>{
         </td>
         <td className='p-4 mx-4 '>{item.category}</td>
         <td className='p-4 mx-4 '>{'$'+item.price}</td>
-        <td className='p-6 mx-6 flex justify-center items-center space-x-6'>
-          <input style={{width:"40px",height:"30px"}} className='text-center' type="number" onChange={(e)=>dispatch({type:"QTY",payload:{id:item.id,value:e.target.value}})} value={item.qty} name='qty'/>
-          <input type='checkbox' checked={item.inCart?true:false} onChange={(e)=>dispatch({type:"IN_CART",payload:{id:item.id}})} id='add_to_cart'/>
+        <td className='p-6 px-12'>
+          <div className='flex space-x-4 items-center'>
+            <input style={{width:"40px",height:"30px"}} className='text-center' type="number" onChange={(e)=>dispatch({type:"QTY",payload:{id:item.id,value:e.target.value}})} value={item.qty} name='qty'/>
+            <input type='checkbox' checked={item.inCart?true:false} onChange={(e)=>dispatch({type:"IN_CART",payload:{id:item.id}})} id='add_to_cart'/>
+          </div>
+          
         </td>
         
     </tr>)
