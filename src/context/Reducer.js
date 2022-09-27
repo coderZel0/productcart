@@ -37,6 +37,8 @@ export const Reducer = (state,action)=>{
                 return {...state,filter:{category:action.payload}}
             }
             return state;
+        case "REFRESH_FILTER":
+            return {...state,filter:{category:'All'}}    
         case "SEARCH":
             console.log(action.payload)
             return {...state,search:action.payload}
