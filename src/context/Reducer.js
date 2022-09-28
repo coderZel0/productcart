@@ -52,7 +52,10 @@ export const Reducer = (state,action)=>{
             const u_cart = state.cart.map((item)=>{
                 if(item.id === action.payload){
                     if(action.operation === 'DECR'){
-                        return {...item,qty:item.qty-1}
+                        if( !(item.qty<=0)){
+                            const nQty =item.qty-1;
+                            return {...item,qty:nQty}
+                        }
                     }
                     else if(action.operation === 'INCR'){
                         return {...item,qty:item.qty+1}
