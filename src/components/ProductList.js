@@ -11,12 +11,13 @@ function ProductList(){
     const filterProducts = ()=>{
         var fProducts = products;
 
-        if(filter.category){
+        if(filter.category && filter.category!=='All'){
             fProducts = products.filter((item)=>{
                 return item.category === filter.category;
                 
             })
         }
+       
 
         console.log(fProducts)
         setItems(fProducts);
@@ -35,7 +36,7 @@ function ProductList(){
 
     useEffect(()=>{
         filterProducts();
-    },[filter.category])
+    },[filter.category,products])
 
     useEffect(()=>{
         if(search === ''){
@@ -80,7 +81,7 @@ function ProductList(){
         <Table columns={[{name:"product"},{name:"name"},{name:"category"},{name:'stock'},{name:"price"},{name:"buy"}]}>
             {items && items.map((item)=><TableRow key={item.id} item={item}/>) 
            }
-           {filter.category==='All' && products.map((item)=><TableRow key={item.id} item={item}/>)}
+           {/*filter.category==='All' && products.map((item)=><TableRow key={item.id} item={item}/>)*/}
         </Table>
         
     </div>)

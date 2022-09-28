@@ -17,7 +17,7 @@ export const TableRow = ({item})=>{
         <td className='p-4 mx-4 capitalize'>{item.category}</td>
         <td className='p-6 mx-4'>
           <div className='flex items-center justify-center space-x-2'>
-            <i style={{color:`${item.instock?'green':'red'}`}} class="fa-solid fa-face-smile"></i>
+            <i style={{color:`${item.instock?'green':'red'}`}} className="fa-solid fa-face-smile"></i>
             <span className={`truncate ${item.instock?'text-green-500':'text-red-500'}`}>{item.instock?"In stock":"no stock"}</span>
           </div>
           
@@ -27,7 +27,7 @@ export const TableRow = ({item})=>{
           <div className='flex space-x-4 items-center'>
             <input style={{width:"40px",height:"30px"}} className='text-center' type="number" onChange={(e)=>dispatch({type:"QTY",payload:{id:item.id,value:e.target.value}})} value={item.qty} name='qty'/>
             <div className='p-1 px-2 bg-zinc-700'>
-              <i style={{color:"white"}} class="fa-solid fa-cart-shopping"></i>
+              <i style={{color:"white"}} className="fa-solid fa-cart-shopping"></i>
             </div>
             <input type='checkbox' checked={item.inCart?true:false} onChange={(e)=>dispatch({type:"IN_CART",payload:{id:item.id}})} id='add_to_cart'/>
           </div>
