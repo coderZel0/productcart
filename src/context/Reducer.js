@@ -13,7 +13,8 @@ export const Reducer = (state,action)=>{
         case "QTY":
             const nproducts = state.products.map((item)=>{
                 if(item.id === action.payload.id){
-                    return {...item,qty:action.payload.value}
+                    const nQty = Number(action.payload.value)
+                    return {...item,qty:nQty}
                 }
                 return item
             })
